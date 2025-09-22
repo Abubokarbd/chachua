@@ -22,106 +22,7 @@
         }
         h1 { margin: 0; font-size: 1.5em; }
         h2 { margin: 5px 0 0 0; font-size: 1em; font-weight: normal; }
-        /* Button style */
-        .btn-group {
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap; /* Allow buttons to wrap */
-            justify-content: center;
-            gap: 4px;
-        }
-        .btn {
-            position: relative;
-            overflow: hidden;
-            background: #228B22;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            font-size: 0.9em;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            min-width: 90px;
-            transition: transform 0.3s, background 0.3s;
-        }
-        .btn:hover { transform: scale(1.05); background: #32CD32; }
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -75%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0.6), rgba(255,255,255,0.2));
-            transform: skewX(-25deg);
-        }
-        .btn:hover::after { animation: shine 0.8s forwards; }
-        @keyframes shine { 0% { left: -75%; } 100% { left: 125%; } }
-        nav { background-color: #fff; padding: 10px; }
-        nav ul { 
-            display: flex; 
-            flex-wrap: wrap; /* Allow menu items to wrap */
-            gap: 4px; 
-            margin: 0; 
-            padding: 0; 
-            list-style: none; 
-            justify-content: center; 
-        }
-        nav li { position: relative; list-style: none; }
-        nav ul ul {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #228B22;
-            display: none;
-            min-width: 120px;
-            flex-direction: column;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            z-index: 1;
-        }
-        nav li:hover > ul { display: flex; }
-        nav ul ul li { width: 100%; }
-        nav ul ul a { 
-            display: block; 
-            padding: 8px 15px; 
-            color: white; 
-            font-size: 0.85em; /* Slightly smaller font for dropdown */
-        }
-        nav ul ul a:hover { background: #32CD32; }
-        /* Welcome scroll */
-        .welcome-scroll {
-            background-color: #cef2ce;
-            padding: 8px;
-            text-align: center;
-            overflow: hidden;
-            white-space: nowrap;
-            font-size: 1.2em;
-            color: #fff;
-            position: relative;
-        }
-        .welcome-scroll span {
-            display: inline-block;
-            padding-left: 100%;
-            animation: scroll-left 15s linear infinite;
-        }
-        @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
-        /* Slider */
-        .slider-container, .highlight-container { position: relative; max-width: 90%; height: auto; margin: 20px auto; overflow: hidden; border-radius: 8px; border: 2px solid #228B22; background-color: #e6f0e6; }
-        .slider, .highlight-slider { position: relative; width: 100%; }
-        .slider img, .highlight-slider img { width: 100%; height: auto; object-fit: cover; opacity: 0; position: absolute; top: 0; left: 0; transition: opacity 0.5s ease-in-out; }
-        .slider img.active, .highlight-slider img.active { opacity: 1; position: relative; }
-        .slider-dots, .highlight-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
-        .slider-dot, .highlight-dot { width: 10px; height: 10px; border-radius: 50%; background-color: #bbb; cursor: pointer; transition: background-color 0.3s; }
-        .slider-dot.active, .highlight-dot.active { background-color: #228B22; }
-        .highlight-caption { max-width: 90%; margin: 10px auto 0; background-color: #f9f9f9; padding: 4px 8px; border-top: 2px solid #228B22; text-align: center; font-size: 0.9em; }
-        /* Principal */
-        .principal-section { padding: 20px; text-align: center; background-color: #fff; max-width: 90%; margin: 20px auto; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .principal-photo { width: 150px; height: 150px; border-radius: 50%; border: 3px solid #228B22; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; background-color: #ddd; }
-        .principal-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-        .principal-message { max-width: 90%; margin: 0 auto; background-color: #f9f9f9; padding: 15px; border-left: 4px solid #228B22; text-align: justify; }
+       
         /* Footer */
         footer { background-color: #228B22; color: white; text-align: center; padding: 20px; margin-top: 20px; }
         .social-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 10px; }
@@ -131,19 +32,8 @@
         .developer-link { text-decoration: none; color: white; transition: color 0.3s, transform 0.3s; }
         .developer-link:hover { color: #32CD32; transform: scale(1.05); }
         /* Responsive */
-        @media (max-width: 768px) {
-            h1 { font-size: 1.2em; }
-            .principal-photo { width: 120px; height: 120px; }
-            .btn { 
-                font-size: 0.75em; /* Smaller font size for mobile */
-                padding: 5px 8px; /* Smaller padding for mobile */
-                min-width: 60px; /* Smaller min-width for mobile */
-            }
-            .slider-container, .highlight-container { max-width: 95%; }
-            .highlight-caption, .principal-message { max-width: 95%; }
-            nav ul { gap: 4px; } /* Better spacing for mobile */
-            nav ul ul { min-width: 100px; } /* Smaller dropdown width for mobile */
-        }
+        
+      
         /* Offline message styling */
         #offlineMessage {
             font-family: 'SolaimanLipi', sans-serif !important;
@@ -160,72 +50,78 @@
             z-index: 9999;
             display: none;
         }
+        
+        
+        /* class list start */
+        .class-list-section {
+    background-color: #ffffff;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.class-list-container {
+    max-width: 600px;
+    margin: auto;
+}
+
+.class-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.class-list li {
+    background-color: #e6ffe6;
+    margin: 8px 0;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.class-list li:hover,
+.class-list li:active {
+    background-color: #c0f0c0;
+    transform: scale(1.05);
+}
+
+
+
     </style>
 </head>
 <body>
     <header>
+    
         <h1> চাঁচুয়া হাজী আলী আকবর আলিম মাদ্রাসা </h1>
-        <h2>একটি যুগোপযোগী দ্বীনি শিক্ষা প্রতিষ্ঠান</h2>
+        <h2> ফলাফল </h2>
     </header>
-    <nav>
-        <ul class="btn-group">
-            <li>
-                <a href="#" class="btn"> শ্রেণি </a>  </li>
-               <li> <a href="#" class="btn"> ফলাফল </a> </li>
-               <li> <a href="#" class="btn"> প্রতিষ্ঠান </a>
-                <ul>
-                    <li><a href="#" class="btn"> ইতিহাস </a></li>
-                    <li><a href="#" class="btn"> শিক্ষকণ্ডলী </a></li>
-                    <li><a href="#" class="btn"> পরিচালনা পর্ষদ </a></li>
-                </ul>
-            </li>
-            <li> <a href="#" class="btn"> যোগাযোগ </a>  </li>
-           
-        </ul>
-    </nav>
-    <div class="welcome-scroll">
-      <a href="https://www.w3schools.com">  <span id="scroll-text">লোড হচ্ছে...</span>  </a>
-    </div>
-    <section id="photo-slider">
-        <div class="slider-container">
-            <div class="slider">
-                <a href="#"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjy-9KzMSphjlpmrWxVkbrFpAcl4YpYSdGWOfai3O7AsJ68-4cDY8f5UNi41e25q44otOaCMDASX-uRxxyEfr23ggXoSJx4slu9uOciuWiEmkXDlLqAp2ApT28hjWbdFGJVkEb6cjqAmeq540MfBWZjPHCfv1eTks2HW_q9TkY9xZSy4F63L5m8JAc4l70/w400-h301/481989552_1111728624059487_2002412106707432060_n.jpg" alt="Slide 1" class="active"></a>
-                <a href="#"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHbEC1Wq8ncF6ukz7a7nmSGlhcNYHy-zwq_kEpH0B3ifHOulLUg6FM0fxMfwiimaqKc3K3clM9KEkmGBBp1-QgVKt260UlpJgV2buLz1rEQmq1QS8jovyG4LhYCKGBQjNcCuOB1OfHFQESJ7240aBCql7JDZD0WYSgMOAIDfRB7hY1zH9g1cNeqRPIEZU/w400-h301/485645164_952292000433894_1920768878763914382_n.jpg" alt="Slide 2"></a>
-                <div class="slider-dots">
-                    <span class="slider-dot active"></span>
-                    <span class="slider-dot"></span>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="principal-section">
-        <h3 style="color: #228B22; margin-bottom: 15px;">অধ্যক্ষ মহোদয়ের বাণী</h3>
-        <div class="principal-photo">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMckrxUGedLm1QLyAqWNDwykLoyoFXr-1wktzO0iJxXvMiQ8p8o9-_vSIdndb5FzyVmkUkMctdMcQkNxhH7Lk4_NTdCG70n8woLl-4f4pOCEkHsATpuVRyPFHoL2xY5CqBFd8-SV44M39rtEYRxxXiq7aNS75HZjmLCFCppEmDF1kYVsNvm8HrAbbG_Ek/w400-h399/principle.jpg" alt="অধ্যক্ষ মহোদয়ের ছবি">
-        </div>
-        <div class="principal-message">
-            <p> চাঁচুয়া হাজী আলী আকবর আলিম মাদ্রাসা আধুনিক শিক্ষার পাশাপাশি ইসলামী জ্ঞানার্জনের শ্রেষ্ঠ স্থান। এখানে ছাত্ররা কুরআন-হাদীস, আরবি, বাংলা ও ইংরেজি শিখে আদর্শ নাগরিক হিসেবে গড়ে ওঠে। আমরা নৈতিকতা, শৃঙ্খলা ও সৎ চরিত্র গঠনে বিশেষ গুরুত্ব দিই। সবাইকে দোয়া ও সহযোগিতার আহ্বান জানাই। – অধ্যক্ষ</p>
-        </div>
-    </section>
-    <section id="highlight-slider">
-        <h3 style="color: #228B22; margin: 20px 0 15px; text-align: center;"> হাইলাইট</h3>
-        <div class="highlight-container">
-            <div class="highlight-slider">
-                <a href="#"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHbEC1Wq8ncF6ukz7a7nmSGlhcNYHy-zwq_kEpH0B3ifHOulLUg6FM0fxMfwiimaqKc3K3clM9KEkmGBBp1-QgVKt260UlpJgV2buLz1rEQmq1QS8jovyG4LhYCKGBQjNcCuOB1OfHFQESJ7240aBCql7JDZD0WYSgMOAIDfRB7hY1zH9g1cNeqRPIEZU/w400-h301/485645164_952292000433894_1920768878763914382_n.jpg" alt="Highlight 1" class="active"></a>
-                <a href="#"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3xu8U3WlCEbySRJJIcF6al8EKi80j1nPITpdVDMF5pdN7RvSR4BxvIH82oFCwGnvZSXzuS155GlnmzF2sVLdTBzEwdknY0acczvfHiKBzFU_7id-Q1nCqgzwbJLtFtzNYm3-u-VccuPci4pHSWy5JhRWC8DwHMG4UTqj5f9XXXW32G3vEzQCpkzlsfvY/w400-h225/122767591_2912345572351414_3033336477968739514_n.jpg" alt="Highlight 2"></a>
-            </div>
-            <div class="highlight-dots">
-                <span class="highlight-dot active"></span>
-                <span class="highlight-dot"></span>
-            </div>
-            <div class="highlight-caption">
-                <p>দাখিল পরীক্ষার্থীদের দোয়া অনুষ্ঠান-২০২৫</p>
-            </div>
-            <div class="highlight-caption" style="display: none;">
-                <p>মাদরাসার পুরাতন ভবন</p>
-            </div>
-        </div>
-    </section>
+    <!-- Class List Section -->
+<section class="class-list-section">
+  <div class="class-list-container">
+    <ul class="class-list">
+      <li onclick="openResult('alim2')">আলিম ২য় বর্ষ</li>
+      <li onclick="openResult('alim1')">আলিম ১ম বর্ষ</li>
+      <li onclick="openResult('dakhil10')">দাখিল ১০ম শ্রেণি</li>
+      <li onclick="openResult('dakhil9')">দাখিল ৯ম শ্রেণি</li>
+      <li onclick="openResult('dakhil8')">দাখিল ৮ম শ্রেণি</li>
+      <li onclick="openResult('dakhil7')">দাখিল ৭ম শ্রেণি</li>
+      <li onclick="openResult('dakhil6')">দাখিল ৬ষ্ঠ শ্রেণি</li>
+      <li onclick="openResult('ibt5')">ইবতেদায়ী ৫ম শ্রেণি</li>
+      <li onclick="openResult('ibt4')">ইবতেদায়ী ৪র্থ শ্রেণি</li>
+      <li onclick="openResult('ibt3')">ইবতেদায়ী ৩য় শ্রেণি</li>
+      <li onclick="openResult('ibt2')">ইবতেদায়ী ২য় শ্রেণি</li>
+      <li onclick="openResult('ibt1')">ইবতেদায়ী ১ম শ্রেণি</li>
+    </ul>
+  </div>
+</section>
+
+
+    
+   
+    
+    <!-- footer start -->
     <footer>
         <div class="social-links">
             <a href="https://www.facebook.com" target="_blank"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png"> ফেসবুক পেজ</a>
@@ -285,6 +181,12 @@
             }
         }
         loadScrollText();
+        
+        function openResult(classId) {
+    // WebView-friendly redirect (can be modal or page)
+    window.location.href = `result.html?class=${classId}`;
+}
+
     </script>
     <script src="https://abubokarbd.github.io/rco/popup.js"></script>
 </body>
