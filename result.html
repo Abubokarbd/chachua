@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>চাঁচুয়া হাজী আলী আকবর আলিম মাদ্রাসা</title>
-  <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet">
+  <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet" />
   <style>
     body {
       font-family: 'SolaimanLipi', sans-serif;
@@ -20,41 +20,49 @@
       background-color: #228B22;
       color: white;
     }
-    h1 { margin: 0; font-size: 1.6em; }
-    h2 { margin: 5px 0 0 0; font-size: 1.1em; font-weight: normal; }
+    h1 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+    h2 {
+      margin: 5px 0 0 0;
+      font-size: 1em;
+      font-weight: normal;
+    }
 
-    .result-section {
-      padding: 20px;
+    /* Class List */
+    .class-list-section {
+      background-color: #ffffff;
+      padding: 20px 10px;
       text-align: center;
     }
-    .result-title {
-      font-size: 1.3em;
-      margin-bottom: 15px;
-      color: #228B22;
+    .class-list-container {
+      max-width: 600px;
+      margin: auto;
     }
-    .result-list {
+    .class-list {
       list-style: none;
       padding: 0;
-      margin: 0 auto;
-      max-width: 400px;
+      margin: 0;
     }
-    .result-list li {
+    .class-list li {
+      background-color: #e6ffe6;
       margin: 8px 0;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1.1em;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      cursor: pointer;
     }
-    .result-list li a {
-      text-decoration: none;
-      color: #228B22;
-      display: block;
-      padding: 10px;
-      border-radius: 6px;
-      background-color: #e6f2e6;
-      transition: background-color 0.3s;
-    }
-    .result-list li a:hover {
-      background-color: #cce5cc;
+    .class-list li:hover,
+    .class-list li:active {
+      background-color: #c0f0c0;
+      transform: scale(1.05);
     }
 
-    .pdf-modal {
+    /* Modal */
+    .modal {
       display: none;
       position: fixed;
       z-index: 9999;
@@ -62,37 +70,35 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.7);
+      background-color: rgba(0, 0, 0, 0.6);
     }
-    .pdf-content {
+    .modal-content {
       background-color: #fff;
       margin: 5% auto;
       padding: 0;
-      border-radius: 8px;
+      border-radius: 10px;
       width: 90%;
       max-width: 800px;
+      height: 90%;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       position: relative;
-    }
-    .pdf-content iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      border-radius: 8px;
     }
     .close-btn {
       position: absolute;
       top: 10px;
-      right: 20px;
+      right: 15px;
       font-size: 28px;
+      font-weight: bold;
       color: #333;
       cursor: pointer;
-      z-index: 10001;
-      background-color: #fff;
-      padding: 5px 10px;
-      border-radius: 50%;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    #pdfViewer {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
     }
 
+    /* Footer */
     footer {
       background-color: #228B22;
       color: white;
@@ -134,12 +140,54 @@
       transform: scale(1.05);
     }
 
-    @media (max-width: 768px) {
-      h1 { font-size: 1.3em; }
-      .result-title { font-size: 1.1em; }
-      .result-list li a { font-size: 0.95em; padding: 8px; }
-      .pdf-content iframe { height: 400px; }
+    /* Offline message */
+    #offlineMessage {
+      font-family: 'SolaimanLipi', sans-serif !important;
+      background-color: #228B22;
+      color: #fff;
+      padding: 15px 25px;
+      border-radius: 8px;
+      font-size: 18px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: none;
     }
+    /* pdf content */
+    .modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    height: 90%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #228B22;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    z-index: 10000;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
   </style>
 </head>
 <body>
@@ -148,22 +196,36 @@
     <h2>ফলাফল</h2>
   </header>
 
-  <main>
-    <section class="result-section">
-      <h2 class="result-title">ফলাফল</h2>
-      <ul class="result-list" id="resultList">
-        <!-- শ্রেণির তালিকা JavaScript দিয়ে আসবে -->
+  <!-- Class List Section -->
+  <section class="class-list-section">
+    <div class="class-list-container">
+      <ul class="class-list">
+        <li onclick="openPDF('1aDpzu945VBqVrYBd3PltEg0RoLEBMkc6')">আলিম ২য় বর্ষ</li>
+        <li onclick="openPDF('')">আলিম ১ম বর্ষ</li>
+        <li onclick="openPDF('')">দাখিল ১০ম শ্রেণি</li>
+        <li onclick="openPDF('')">দাখিল ৯ম শ্রেণি</li>
+        <li onclick="openPDF('')">দাখিল ৮ম শ্রেণি</li>
+        <li onclick="openPDF('')">দাখিল ৭ম শ্রেণি</li>
+        <li onclick="openPDF('')">দাখিল ৬ষ্ঠ শ্রেণি</li>
+        <li onclick="openPDF('')">ইবতেদায়ী ৫ম শ্রেণি</li>
+        <li onclick="openPDF('')">ইবতেদায়ী ৪র্থ শ্রেণি</li>
+        <li onclick="openPDF('')">ইবতেদায়ী ৩য় শ্রেণি</li>
+        <li onclick="openPDF('')">ইবতেদায়ী ২য় শ্রেণি</li>
+        <li onclick="openPDF('')">ইবতেদায়ী ১ম শ্রেণি</li>
       </ul>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <div id="pdfModal" class="pdf-modal">
-    <div class="pdf-content">
-      <span class="close-btn" onclick="closePDFModal()">&times;</span>
-      <iframe id="pdfFrame" src="" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+  <!-- PDF Modal pop up  -->
+  <div id="pdfModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closePDF()">&times;</span>
+      <iframe id="pdfViewer" frameborder="0"></iframe>
     </div>
   </div>
+  
 
+  <!-- Footer -->
   <footer>
     <div class="social-links">
       <a href="https://www.facebook.com" target="_blank"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png"> ফেসবুক পেজ</a>
@@ -177,37 +239,20 @@
   </footer>
 
   <script>
-    const sheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQpa31Mp-zL3zxmq7_BDPPQrw9p2oTQRmryxZtbLFkMszSWOS4_T4Qu9uQKzHT35Gqe7jJJDiTmwjmP/pub?output=csv';
-
-    fetch(sheetURL)
-      .then(response => response.text())
-      .then(data => {
-        const rows = data.trim().split('\n');
-        const resultList = document.getElementById('resultList');
-
-        rows.forEach(row => {
-          const [className, fileId] = row.split(',');
-          if (className && fileId) {
-            const li = document.createElement('li');
-            const a = document.createElement('a');
-            a.href = '#';
-            a.textContent = className.trim();
-            a.onclick = () => openPDFModal(fileId.trim());
-            li.appendChild(a);
-            resultList.appendChild(li);
-          }
-        });
-      });
-
-    function openPDFModal(fileId) {
-      const viewerURL = `https://drive.google.com/file/d/${fileId}/preview`;
-      document.getElementById("pdfFrame").src = viewerURL;
-      document.getElementById("pdfModal").style.display = "block";
+    function openPDF(fileId) {
+      if (!fileId) {
+        alert("এই ক্লাসের ফলাফল এখনো যুক্ত হয়নি।");
+        return;
+      }
+      const viewer = document.getElementById('pdfViewer');
+      viewer.src = `https://drive.google.com/file/d/${fileId}/preview`;
+      document.getElementById('pdfModal').style.display = 'block';
     }
-    function closePDFModal() {
-      document.getElementById("pdfModal").style.display = "none";
-      document.getElementById("pdfFrame").src = "";
+
+    function closePDF() {
+      document.getElementById('pdfModal').style.display = 'none';
+      document.getElementById('pdfViewer').src = '';
     }
   </script>
 </body>
-</html>
+</
