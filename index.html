@@ -163,23 +163,18 @@
             display: none;
         }
     /* ভিজিটর বক্স */
-        .visitor-box {
-  background-color: #e6ffe6;
-  border: 1px solid #228B22;
-  border-radius: 8px;
-  padding: 10px 15px;
-  max-width: 300px;
-  margin: 20px auto;
+       .visitor-box {
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   font-size: 1em;
+  margin: 10px auto;
+  line-height: 1.4;
 }
 .visitor-count {
-  font-size: 1.4em;
+  font-size: 1.3em;
   font-weight: bold;
   color: #228B22;
-  margin-top: 5px;
 }
+
 
     </style>
 </head>
@@ -260,11 +255,11 @@
         </div>
     </footer>
 
-     // ভিজিটর কাউন্টার 
-    <div class="visitor-box">
-  <p>মোট ভিজিটর</p>
+<div class="visitor-box">
+  <p>মোট ভিজিটর </p>
   <div class="visitor-count"><span id="visitorCount">...</span> বার</div>
 </div>
+
 
     <script>
         // Photo slider
@@ -316,7 +311,7 @@
         loadScrollText();
     </script>
     <script src="https://abubokarbd.github.io/rco/popup.js"></script>
-    <!-- Firebase SDK -->
+    
 <!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
@@ -343,7 +338,8 @@
 
   counterRef.on("value", snapshot => {
     const count = snapshot.val();
-    document.getElementById("visitorCount").innerText = count;
+    const banglaDigits = count.toString().replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+    document.getElementById("visitorCount").innerText = banglaDigits;
   });
 </script>
 
