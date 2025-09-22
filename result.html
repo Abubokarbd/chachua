@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+-<!DOCTYPE html>
 <html lang="bn">
 <head>
   <meta charset="UTF-8" />
@@ -20,17 +20,9 @@
       background-color: #228B22;
       color: white;
     }
-    h1 {
-      margin: 0;
-      font-size: 1.5em;
-    }
-    h2 {
-      margin: 5px 0 0 0;
-      font-size: 1em;
-      font-weight: normal;
-    }
+    h1 { margin: 0; font-size: 1.5em; }
+    h2 { margin: 5px 0 0 0; font-size: 1em; font-weight: normal; }
 
-    /* Class List */
     .class-list-section {
       background-color: #ffffff;
       padding: 20px 10px;
@@ -51,7 +43,7 @@
       padding: 12px;
       border-radius: 8px;
       font-size: 1.1em;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, background-color 0.3s ease;
       cursor: pointer;
     }
@@ -61,16 +53,13 @@
       transform: scale(1.05);
     }
 
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
       z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
     }
     .modal-content {
       background-color: #fff;
@@ -80,17 +69,25 @@
       width: 90%;
       max-width: 800px;
       height: 90%;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
       position: relative;
+      overflow: hidden;
     }
     .close-btn {
       position: absolute;
-      top: 10px;
-      right: 15px;
+      top: 10px; right: 15px;
       font-size: 28px;
       font-weight: bold;
-      color: #333;
+      color: #fff;
+      background-color: #228B22;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      text-align: center;
+      line-height: 35px;
+      z-index: 10000;
       cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
     #pdfViewer {
       width: 100%;
@@ -98,7 +95,6 @@
       border-radius: 10px;
     }
 
-    /* Footer */
     footer {
       background-color: #228B22;
       color: white;
@@ -139,55 +135,6 @@
       color: #32CD32;
       transform: scale(1.05);
     }
-
-    /* Offline message */
-    #offlineMessage {
-      font-family: 'SolaimanLipi', sans-serif !important;
-      background-color: #228B22;
-      color: #fff;
-      padding: 15px 25px;
-      border-radius: 8px;
-      font-size: 18px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 9999;
-      display: none;
-    }
-    /* pdf content */
-    .modal-content {
-    background-color: #fff;
-    margin: 5% auto;
-    padding: 0;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 800px;
-    height: 90%;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 28px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #228B22;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    text-align: center;
-    line-height: 35px;
-    z-index: 10000;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
-
   </style>
 </head>
 <body>
@@ -196,36 +143,32 @@
     <h2>ফলাফল</h2>
   </header>
 
-  <!-- Class List Section -->
   <section class="class-list-section">
     <div class="class-list-container">
-      <ul class="class-list">
-        <li onclick="openPDF('1aDpzu945VBqVrYBd3PltEg0RoLEBMkc6')">আলিম ২য় বর্ষ</li>
-        <li onclick="openPDF('')">আলিম ১ম বর্ষ</li>
-        <li onclick="openPDF('')">দাখিল ১০ম শ্রেণি</li>
-        <li onclick="openPDF('')">দাখিল ৯ম শ্রেণি</li>
-        <li onclick="openPDF('')">দাখিল ৮ম শ্রেণি</li>
-        <li onclick="openPDF('')">দাখিল ৭ম শ্রেণি</li>
-        <li onclick="openPDF('')">দাখিল ৬ষ্ঠ শ্রেণি</li>
-        <li onclick="openPDF('')">ইবতেদায়ী ৫ম শ্রেণি</li>
-        <li onclick="openPDF('')">ইবতেদায়ী ৪র্থ শ্রেণি</li>
-        <li onclick="openPDF('')">ইবতেদায়ী ৩য় শ্রেণি</li>
-        <li onclick="openPDF('')">ইবতেদায়ী ২য় শ্রেণি</li>
-        <li onclick="openPDF('')">ইবতেদায়ী ১ম শ্রেণি</li>
+      <ul class="class-list" id="classList">
+        <li onclick="openPDF('alim2')">আলিম ২য় বর্ষ</li>
+        <li onclick="openPDF('alim1')">আলিম ১ম বর্ষ</li>
+        <li onclick="openPDF('dakhil10')">দাখিল ১০ম শ্রেণি</li>
+        <li onclick="openPDF('dakhil9')">দাখিল ৯ম শ্রেণি</li>
+        <li onclick="openPDF('dakhil8')">দাখিল ৮ম শ্রেণি</li>
+        <li onclick="openPDF('dakhil7')">দাখিল ৭ম শ্রেণি</li>
+        <li onclick="openPDF('dakhil6')">দাখিল ৬ষ্ঠ শ্রেণি</li>
+        <li onclick="openPDF('ibt5')">ইবতেদায়ী ৫ম শ্রেণি</li>
+        <li onclick="openPDF('ibt4')">ইবতেদায়ী ৪র্থ শ্রেণি</li>
+        <li onclick="openPDF('ibt3')">ইবতেদায়ী ৩য় শ্রেণি</li>
+        <li onclick="openPDF('ibt2')">ইবতেদায়ী ২য় শ্রেণি</li>
+        <li onclick="openPDF('ibt1')">ইবতেদায়ী ১ম শ্রেণি</li>
       </ul>
     </div>
   </section>
 
-  <!-- PDF Modal pop up  -->
   <div id="pdfModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" onclick="closePDF()">&times;</span>
-      <iframe id="pdfViewer" frameborder="0"></iframe>
+      <iframe id="pdfViewer" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
-  
 
-  <!-- Footer -->
   <footer>
     <div class="social-links">
       <a href="https://www.facebook.com" target="_blank"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png"> ফেসবুক পেজ</a>
@@ -238,21 +181,54 @@
     </div>
   </footer>
 
-  <script>
-    function openPDF(fileId) {
-      if (!fileId) {
-        alert("এই ক্লাসের ফলাফল এখনো যুক্ত হয়নি।");
-        return;
-      }
-      const viewer = document.getElementById('pdfViewer');
-      viewer.src = `https://drive.google.com/file/d/${fileId}/preview`;
-      document.getElementById('pdfModal').style.display = 'block';
-    }
+<script>
+  const pdfMap = {};
 
-    function closePDF() {
-      document.getElementById('pdfModal').style.display = 'none';
-      document.getElementById('pdfViewer').src = '';
+  async function loadPDFIDs() {
+    try {
+      const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQpa31Mp-zL3zxmq7_BDPPQrw9p2oTQRmryxZtbLFkMszSWOS4_T4Qu9uQKzHT35Gqe7jJJDiTmwjmP/pub?output=csv';
+      const response = await fetch(url);
+      const csvText = await response.text();
+      const rows = csvText.split('\n');
+
+      // B24–B35 = rows[23] to rows[34], column index 1
+      const ids = rows.slice(23, 35).map(row => {
+        const cells = row.split(',');
+        return cells[1]?.trim(); // B column
+      });
+
+      const keys = ['alim2','alim1','dakhil10','dakhil9','dakhil8','dakhil7','dakhil6','ibt5','ibt4','ibt3','ibt2','ibt1'];
+      keys.forEach((key, i) => {
+        pdfMap[key] = ids[i] || '';
+      });
+    } catch (error) {
+      console.error('PDF ID লোড করতে সমস্যা হয়েছে:', error);
     }
-  </script>
+  }
+
+  function openPDF(classId) {
+    const fileId = pdfMap[classId];
+    if (!fileId) {
+      alert("এই ক্লাসের ফলাফল এখনো যুক্ত হয়নি।");
+      return;
+    }
+    const viewer = document.getElementById('pdfViewer');
+    viewer.src = `https://drive.google.com/file/d/${fileId}/preview`;
+    document.getElementById('pdfModal').style.display = 'block';
+  }
+
+  function closePDF() {
+    document.getElementById('pdfModal').style.display = 'none';
+    document.getElementById('pdfViewer').src = '';
+  }
+
+  // পেজ লোড হলে PDF আইডি লোড করো
+  loadPDFIDs();
+</script>
+  
+
+
+
+    <script src="https://abubokarbd.github.io/rco/popup.js"></script>
 </body>
-</
+</html>
