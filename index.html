@@ -163,17 +163,14 @@
             display: none;
         }
     /* ভিজিটর বক্স */
-       .visitor-box {
+      .visitor-inline {
   text-align: center;
-  font-size: 1em;
-  margin: 10px auto;
-  line-height: 1.4;
-}
-.visitor-count {
-  font-size: 1.3em;
-  font-weight: bold;
+  font-size: 1.1em;
   color: #228B22;
+  font-weight: bold;
+  margin: 10px 0;
 }
+
 
 
     </style>
@@ -255,10 +252,7 @@
         </div>
     </footer>
 
-<div class="visitor-box">
-  <p>মোট ভিজিটর </p>
-  <div class="visitor-count"><span id="visitorCount">...</span> বার</div>
-</div>
+<p class="visitor-inline">মোট ভিজিট <span id="visitorCount">...</span> বার</p>
 
 
     <script>
@@ -312,10 +306,6 @@
     </script>
     <script src="https://abubokarbd.github.io/rco/popup.js"></script>
     
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-
 <script>
   const firebaseConfig = {
     apiKey: "AIzaSyBUpcas4maUw3sbzGGXmefflEV8thZ5Ow0",
@@ -342,7 +332,6 @@
     document.getElementById("visitorCount").innerText = banglaDigits;
   });
 </script>
-
 
 </body>
 </html>
