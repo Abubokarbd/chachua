@@ -162,6 +162,25 @@
             z-index: 9999;
             display: none;
         }
+    /* ভিজিটর বক্স */
+        .visitor-box {
+  background-color: #e6ffe6;
+  border: 1px solid #228B22;
+  border-radius: 8px;
+  padding: 10px 15px;
+  max-width: 300px;
+  margin: 20px auto;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-size: 1em;
+}
+.visitor-count {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #228B22;
+  margin-top: 5px;
+}
+
     </style>
 </head>
 <body>
@@ -240,6 +259,13 @@
             Developed by <a href="https://abubokarbd.github.io/kankirhat/deve.html" target="_blank" class="developer-link">আবুবকর ছিদ্দিক</a>
         </div>
     </footer>
+
+     // ভিজিটর কাউন্টার 
+    <div class="visitor-box">
+  <p>মোট ভিজিটর</p>
+  <div class="visitor-count"><span id="visitorCount">...</span> বার</div>
+</div>
+
     <script>
         // Photo slider
         function initPhotoSlider() {
@@ -290,5 +316,37 @@
         loadScrollText();
     </script>
     <script src="https://abubokarbd.github.io/rco/popup.js"></script>
+    <!-- Firebase SDK -->
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBUpcas4maUw3sbzGGXmefflEV8thZ5Ow0",
+    authDomain: "chachua-app.firebaseapp.com",
+    databaseURL: "https://chachua-app-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "chachua-app",
+    storageBucket: "chachua-app.firebasestorage.app",
+    messagingSenderId: "569891149019",
+    appId: "1:569891149019:web:805ece1eb6c195f880a8fe",
+    measurementId: "G-LQ24WPX8LM"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+  const counterRef = db.ref("visitorCount");
+
+  counterRef.transaction(current => {
+    return (current || 0) + 1;
+  });
+
+  counterRef.on("value", snapshot => {
+    const count = snapshot.val();
+    document.getElementById("visitorCount").innerText = count;
+  });
+</script>
+
+
 </body>
 </html>
