@@ -30,21 +30,23 @@
             justify-content: center;
             gap: 4px;
         }
-        .btn {
-            position: relative;
-            overflow: hidden;
-            background: #228B22;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            font-size: 0.9em;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            min-width: 90px;
-            transition: transform 0.3s, background 0.3s;
+       .btn {
+    position: relative;
+    overflow: hidden;
+    background: #228B22;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9em;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: flex; /* পরিবর্তন */
+    align-items: center; /* উল্লম্বভাবে সেন্টার */
+    justify-content: center; /* অনুভূমিকভাবে সেন্টার */
+    min-width: 90px;
+    transition: transform 0.3s, background 0.3s;
         }
         .btn:hover { transform: scale(1.05); background: #32CD32; }
         .btn::after {
@@ -174,10 +176,10 @@
                <li> <a href="https://abubokarbd.github.io/chachua/result.html" class="btn"> ফলাফল </a> </li>
                <li> <a href="#" class="btn"> প্রতিষ্ঠান </a>
                 <ul>
-                    <li><a href="#" class="btn"> ইতিহাস </a></li>
-                    <li><a href="#" class="btn"> শিক্ষকণ্ডলী </a></li>
-                    <li><a href="#" class="btn"> পরিচালনা পর্ষদ </a></li>
-                    <li><a href="#" class="btn"> প্রাক্তন শিক্ষার্থী ফোরাম </a></li>
+                    <li><a href="#" class="btn">ইতিহাস </a></li>
+                    <li><a href="#" class="btn">শিক্ষকণ্ডলী </a></li>
+                    <li><a href="#" class="btn">পরিচালনা পর্ষদ </a></li>
+                    <li><a href="#" class="btn">প্রাক্তন শিক্ষার্থী ফোরাম </a></li>
                 </ul>
             </li>
             <li> <a href="#" class="btn"> যোগাযোগ </a>  </li>
